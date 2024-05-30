@@ -3,8 +3,13 @@
 {% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">{%endblock%}
 
 {% block container %}
-    <header class="header">
-        <h1>Bienvenido a My Blog</h1>
-        <p class="header__text">Esta es una plataforma que te ayudará a que crees tu propio blog y que difrutes con los de los otros</p>
-    </header>
+    <div class="header__wrapper">
+        <header class="header">
+            <h1>Welcome to My Blog</h1>
+            <p class="header__text">Hello and welcome to my personal blog! I'm Mateo Piana, a passionate developer diving into the exciting world of web development. This blog is where I share my thoughts, projects, and discoveries as I navigate through learning and building new things.</p>
+            <h2>About This Blog</h2>
+            <p class="header__text">This blog is my little corner of the internet where I document my journey in web development. Here, you'll find a mix of tutorials, project showcases, and personal reflections. Whether you're a fellow developer or just curious about coding, I hope you find something here that inspires you or helps you on your own path.</p>
+            <!-- <img class="header__img" src="{{ url_for('static', filename='img/blog-img.jpg') }}" alt=""> -->
+        </header>
+    </div>
 {%endblock%}

@@ -1,10 +1,23 @@
 {% extends "base.html" %}
-{% block title %}Home{%endblock%}
-{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">{%endblock%}
+{% block title %}About{%endblock%}
+{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/about.css') }}">{%endblock%}
 
 {% block container %}
-    <header class="header">
-        <h1>Bienvenido a My Blog</h1>
-        <p class="header__text">Esta es una plataforma que te ayudará a que crees tu propio blog y que difrutes con los de los otros</p>
-    </header>
+    <div class="main__wrapper">
+        <main class="main">
+            <h1>About This Blog</h1>
+            <p>Welcome to my personal blog! My name is Mateo Piana and I am a passionate developer currently exploring the world of web development. This blog is my little corner of the internet where I share my journey, experiences, and insights as I learn and grow in the field of programming.</p>
+        
+            <h2>Why I Started This Blog</h2>
+            <p>I started this blog to document my progress and share the knowledge I gain along the way. As a self-taught developer, I believe in the power of community and the importance of sharing what we learn. By writing about my projects, challenges, and solutions, I hope to help others who are on a similar path.</p>
+        
+            <h2>About Me</h2>
+            <p>I'm a {{my_age}}-year-old student with a passion for coding and technology. I believe that learning is a lifelong journey, and I'm excited to see where this path takes me.</p>
+        
+            <h2>Connect With Me</h2>
+            <p>If you have any questions, feedback, or just want to say hello, feel free to reach out to me. You can contact me via email <span>mateoapiana@gmail.com</span>. I would love to hear from you!</p>
+        
+            <p>Thank you for visiting my blog. Happy coding!</p>
+        </main>
+    </div>
 {%endblock%}
