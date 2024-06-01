@@ -4,13 +4,17 @@
 
 {% block container %}
 
-    <h1>Registrar usuario</h1>
+    <div class="main__wrapper">
+        <main>
+            <h1>Register User</h1>
 
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        {{ form.username.label }} {{ form.username }}
-        {{ form.email.label }} {{ form.email }}
-        {{ form.password.label }} {{ form.password }}
-        {{ form.submit }}
-    </form>
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                {{ form.username.label }} {{ form.username }}
+                {{ form.email.label }} {{ form.email }}
+                {{ form.password.label }} {{ form.password }}
+                {{ form.submit }}
+            </form>
+        </main>
+    </div>
 {%endblock%}
