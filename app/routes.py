@@ -1,8 +1,10 @@
 from flask import render_template, url_for, flash, redirect
 from app import app
-# from app.forms import RegistrationForm, LoginForm, PostForm
-# from app.models import User, Post
+from app.forms import RegisterForm
 from flask_login import login_user, current_user, logout_user, login_required
+import re
+from app.models import insertDataToForm
+
 
 @app.route("/")
 @app.route("/home")
@@ -13,9 +15,16 @@ def home():
 def about():
     return render_template('about.html', title='About')
 
-@app.route("/register")
+@app.route("/register", methods = ['GET', 'POST'])
 def register():
-    return render_template('register.html', title='Register')
+    form = RegisterForm()
+    if form.validate_on_submit():
+        username = form.username.data
+        password = form.password.data
+        email = form.email.data
+        insertDataToForm(form)
+        return redirect(url_for('home'))
+    return render_template('register.html', title='Register', form = form)
 
 @app.route("/login")
 def login():
