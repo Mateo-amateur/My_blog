@@ -1,14 +1,15 @@
 from flask import render_template, url_for, flash, redirect
 from app import app
-from app.forms import RegisterForm, LogInForm, ValidateNameLogIn
+from app.forms import RegisterForm, LogInForm, ValidateNameLogIn, NewPostForm
 from flask_login import login_user, current_user, logout_user, login_required
-from app.models import insertDataToForm, getNameList, getPassword, initUser
+from app.models import insertDataToForm, getNameList, getPassword
 
-class ProfileLogin:
+class Profile:
     def __init__(self) -> None:
         self.isLogIn = False
+        self.username = None
         
-profile = ProfileLogin()
+profile = Profile()
 
 @app.route("/")
 @app.route("/home")
@@ -41,7 +42,7 @@ def login():
         if ValidateNameLogIn(listName, username):
             passwordUser = int(getPassword(username))
             if  passwordUser == password:
-                user =  initUser(form.username.data)
+                profile.username = form.username.data
                 profile.isLogIn = True
                 return redirect(url_for('home'))
             else:
@@ -59,4 +60,11 @@ def logout():
 
 @app.route("/post/new")
 def new_post():
-    return render_template('create_post.html', title='New Post', profile = profile)
+    form = NewPostForm()
+    error = None
+    if form.validate_on_submit():
+        pass
+    else: 
+        pass
+        
+    return render_template('create_post.html', title='New Post', profile = profile, form = form)

@@ -1,9 +1,5 @@
 import sqlite3
 
-class Profile:
-    def __init__(self, username):
-        self.username = username
-        
 def insertDataToForm(form):
     with sqlite3.connect('entor-blog/my_blog/app/site.db') as conn:
         cusor = conn.cursor()
@@ -23,5 +19,3 @@ def getPassword(username):
         res = cusor.fetchall()
         return res[0][0]
     
-def initUser(username):
-    return Profile(username)

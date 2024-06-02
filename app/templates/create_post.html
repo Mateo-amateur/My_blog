@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{title}}{%endblock%}
+{% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/new_post.css') }}">{%endblock%}
+
+{% block container %}
+    <div class="header__wrapper">
+        <header class="header">
+            <h1>Create your post</h1>
+            <p class="header__text">Hello and welcome to my personal blog! I'm Mateo Piana, a passionate developer diving into the exciting world of web development. This blog is where I share my thoughts, projects, and discoveries as I navigate through learning and building new things.</p>
+            <form action="" method="post">
+                {{ form.hidden_tag() }}
+                {{ form.title.label }} {{ form.title }}
+                {{ form.contentPost.label }} {{ form.contentPost }}
+                {{ form.submit }}
+            </form>
+        </header>
+    </div>
+{%endblock%}
