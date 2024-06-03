@@ -44,3 +44,9 @@ h1{
 .main span{
     font-weight: bold;
 }
+
+@media screen and (min-width: 1000px) {
+    .main__wrapper{
+        margin-top: 20vh;
+    }
+}

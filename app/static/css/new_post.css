@@ -64,3 +64,10 @@ form input[type="submit"]{
     font-size: 1.2rem;
     animation: none;
 }
+
+
+@media screen and (min-width: 1000px) {
+    .header__wrapper{
+        margin-top: 20vh;
+    }
+}

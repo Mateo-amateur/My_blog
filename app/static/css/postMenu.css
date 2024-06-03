@@ -47,5 +47,12 @@ h1{
 .post__author{
     color: var(--dark-color);
     text-align: end;
-    
+
+}
+
+
+@media screen and (min-width: 1000px) {
+    h1{
+        margin-top: 7vh;
+    }
 }

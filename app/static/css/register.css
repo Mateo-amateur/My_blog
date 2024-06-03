@@ -59,3 +59,10 @@ form input[type="submit"]{
 .error{
     color: #f33;
 }
+
+
+@media screen and (min-width: 1000px) {
+    .main__wrapper{
+        margin-top: 20vh;
+    }
+}
