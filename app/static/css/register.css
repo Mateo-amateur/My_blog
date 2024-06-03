@@ -1,6 +1,6 @@
 .main__wrapper {
     padding: 20px;
-    background-color: #2D667C;
+    background-color: var(--dark-color);
     margin:  15dvh auto;
     margin-bottom: 0;
     border-radius: 50px;
@@ -23,7 +23,7 @@ form{
 
 h1{
     text-align: center;
-    color: #2D667C;
+    color: var(--dark-color);
     font-size: 2.4rem;
     letter-spacing: 1.5px;
     margin-bottom: 5px;
@@ -33,14 +33,14 @@ form label{
     margin: 5px;
     margin-left: 28%;
     width: 100%;
-    color: #2d667c;
+    color: var(--dark-color);
 }
 
 form input{
     font-family: inherit;
     padding: 8px;
     border-radius: 10px;
-    background-color: #EEF7FF;
+    background-color: var(--light-color);
     border: none;
     width: 70%;
 }
@@ -48,10 +48,9 @@ form input{
 form input[type="submit"]{
     margin-top: 40px;
     font-family: inherit;
-    background-color: #2D667C;
-    /* border: 2px solid #2D667C; */
+    background-color: var(--dark-color);
     font-weight: bold;
-    color: #EEF7FF;
+    color: var(--light-color);
     max-width: 60%;
     font-size: 1.2rem;
     animation: none;

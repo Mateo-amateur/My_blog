@@ -1,24 +1,24 @@
 body{
-    background-color: #CDE8E5;
+    background-color: var(--bg-color);
 }
 
 .header__wrapper {
     padding: 20px;
-    background-color: #7AB2B2;
+    background-color: var(--main-color);
     margin:  15dvh 5dvw auto 5dvw;
     border-radius: 50px;
     box-shadow: 0 4px 8px #0007;
 }
 
 .header{
-    background-color: #fff4;
+    background-color: var(--light-transparent-color);
     border-radius: 50px;
     padding: 50px 20px;
 }
 
 h1, .header__text{
     text-align: center;
-    color: #2D667C;
+    color: var(--dark-color);
 }
 
 h1{
@@ -28,7 +28,7 @@ h1{
 
 .header h2{
     font-size: 1.7rem;
-    color: #4D869C;
+    color: var(--item-navbar-color);
     padding: 5px;
     text-align: center;
     margin-top: 15px;
