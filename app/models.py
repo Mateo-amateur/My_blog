@@ -33,3 +33,9 @@ def getPassword(username):
         res = cusor.fetchall()
         return res[0][0]
     
+def getPosts():
+    with sqlite3.connect('entor-blog/my_blog/app/site.db') as conn:
+        cusor = conn.cursor()
+        cusor.execute("SELECT U.username, P.title , P.content FROM Post P INNER JOIN User U WHERE U.userID = P.userID")
+        res = cusor.fetchall()
+        return res

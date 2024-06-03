@@ -3,7 +3,7 @@ from flask import render_template, url_for, flash, redirect
 from app import app
 from app.forms import RegisterForm, LogInForm, ValidateNameLogIn, NewPostForm
 from flask_login import login_user, current_user, logout_user, login_required
-from app.models import insertDataToForm, getNameList, getPassword, insertDataToPost
+from app.models import insertDataToForm, getNameList, getPassword, insertDataToPost, getPosts
 
 # Creating class to control if is login and keep the data of user after
 class Profile:
@@ -75,8 +75,9 @@ def logout():
 
 # Creating rout to search posts
 @app.route("/post/all")
-def post():
-    return render_template('postMenu.html', title="Posts", profile = profile)
+def post_all():
+    posts = getPosts()
+    return render_template('postMenu.html', title="Posts", profile = profile, posts = posts)
 
 # Creating rout create new post
 @app.route("/post/new", methods = ['GET', 'POST'])

@@ -5,7 +5,13 @@
 {% block container %}
     <div class="header__wrapper">
         <main>
-            {%  %}
+            {% for post in posts %}
+            <div class="post">
+                <h1> {{post[1]}} </h1>
+                <p class="textPost"> {{post[2]}} </p>
+                <p class="author"> Author: {{post[0]}} </p>
+            </div>
+            {%endfor%}
         </main>
     </div>
 {%endblock%}
