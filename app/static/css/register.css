@@ -48,7 +48,7 @@ form input{
 form input[type="submit"]{
     margin-top: 40px;
     font-family: inherit;
-    background-color: var(--dark-color);
+    background-color: var(--main-color);
     font-weight: bold;
     color: var(--light-color);
     max-width: 60%;
