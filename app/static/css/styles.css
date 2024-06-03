@@ -23,10 +23,11 @@ nav ul{
 .navbar__list{
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     background-color: var(--main-color);
     height: fit-content;
     width: 100dvw;
-    padding: 25px;
+    padding: 10px;
     position: fixed;
     top: 0;
     left: 0;
@@ -51,6 +52,33 @@ nav ul{
 }
 
 .list__link:hover{
+    background-color: var(--bg-color);
+    color: var(--item-navbar-color);
+}
+
+.navbar__list > span{
+    font-size: 40px;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color .6s, color .6s;
+}
+
+.mode_ligth{
+    background-color: var(--bg-color);
+    color: var(--item-navbar-color);
+}
+
+.mode_ligth:hover{
+    color: var(--light-color);
+    background-color: var(--item-navbar-color);
+}
+
+.mode_dark{
+    color: var(--light-color);
+    background-color: var(--item-navbar-color);
+}
+
+.mode_dark:hover{
     background-color: var(--bg-color);
     color: var(--item-navbar-color);
 }

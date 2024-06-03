@@ -10,5 +10,7 @@
         <li class="list__item"><a class="list__link" href="{{url_for('logout')}}"><span class="material-symbols-outlined icon">Logout</span><span class="content">Logout</span></a></li>
         <li class="list__item"><a class="list__link" href="{{url_for('new_post')}}"><span class="material-symbols-outlined icon">add</span><span class="content">New Post</span></a></li>
         {%endif%}
+        <span class="material-symbols-outlined mode mode_ligth">Light_mode</span>
     </ul>
 </nav>
+<script src="{{ url_for('static', filename='js/scripts.js') }}"></script>

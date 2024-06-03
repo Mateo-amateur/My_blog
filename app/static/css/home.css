@@ -28,7 +28,7 @@ h1{
 
 .header h2{
     font-size: 1.7rem;
-    color: var(--item-navbar-color);
+    color: var(--dark-color);
     padding: 5px;
     text-align: center;
     margin-top: 15px;

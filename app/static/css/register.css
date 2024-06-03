@@ -1,6 +1,6 @@
 .main__wrapper {
     padding: 20px;
-    background-color: var(--dark-color);
+    background-color: var(--main-color);
     margin:  15dvh auto;
     margin-bottom: 0;
     border-radius: 50px;
@@ -40,7 +40,7 @@ form input{
     font-family: inherit;
     padding: 8px;
     border-radius: 10px;
-    background-color: var(--light-color);
+    background-color: #fff;
     border: none;
     width: 70%;
 }
