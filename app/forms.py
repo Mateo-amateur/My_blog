@@ -19,8 +19,10 @@ class NewPostForm(FlaskForm):
     submit = SubmitField('Crate Post')
     
 def ValidateNameLogIn(listName, username):
-    for name in listName:
-        if name == username:
+    for i in range(len(listName)):
+        print(i)
+        if listName[i][0] == username:
             return True
         else:
-            return False
+            pass
+    return False

@@ -33,13 +33,17 @@ def about():
 def register():
     # Creating Form
     form = RegisterForm()
+    error = None
     # Validating the data from the form
     if form.validate_on_submit():
-        insertDataToForm(form)
-        profile.isLogIn = True
-        profile.defineUsername(form.username.data)
-        return redirect(url_for('home'))
-    return render_template('register.html', title='Register', form = form, profile = profile)
+        error = insertDataToForm(form)
+        if error == None:
+            profile.isLogIn = True
+            profile.defineUsername(form.username.data)
+            return redirect(url_for('home'))
+        else:
+            return render_template('register.html', title='Register', form = form, profile = profile, error = error)
+    return render_template('register.html', title='Register', form = form, profile = profile, error = error)
 
 # Creating rout register
 @app.route("/login", methods = ['GET', 'POST'])
@@ -76,19 +80,25 @@ def logout():
 # Creating rout to search posts
 @app.route("/post/all")
 def post_all():
-    posts = getPosts()
-    return render_template('postMenu.html', title="Posts", profile = profile, posts = posts)
+    if profile.isLogIn == False:
+        return redirect(url_for('home'))
+    else:
+        posts = getPosts()
+        return render_template('postMenu.html', title="Posts", profile = profile, posts = posts)
 
 # Creating rout create new post
 @app.route("/post/new", methods = ['GET', 'POST'])
 def new_post():
-    # Creating Form
-    form = NewPostForm()
-    error = None
-    if form.validate_on_submit():
-        insertDataToPost(form, profile.username)
+    if profile.isLogIn == False:
+        return redirect(url_for('home'))
+    else:
+        # Creating Form
+        form = NewPostForm()
+        error = None
+        if form.validate_on_submit():
+            insertDataToPost(form, profile.username)
+            return render_template('create_post.html', title='New Post', profile = profile, form = form)
+        else: 
+            return render_template('create_post.html', title='New Post', profile = profile, form = form)
+            
         return render_template('create_post.html', title='New Post', profile = profile, form = form)
-    else: 
-        return render_template('create_post.html', title='New Post', profile = profile, form = form)
-        
-    return render_template('create_post.html', title='New Post', profile = profile, form = form)

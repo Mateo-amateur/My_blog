@@ -3,20 +3,25 @@ import sqlite3
 def insertDataToForm(form):
     with sqlite3.connect('entor-blog/my_blog/app/site.db') as conn:
         cusor = conn.cursor()
-        cusor.execute(f"INSERT INTO User (username, email, image_file, password)VALUES ('{form.username.data}', '{form.email.data}', 'default.jpg', '{form.password.data}')")
+        try:
+            cusor.execute(f"INSERT INTO User (username, email, image_file, password)VALUES ('{form.username.data}', '{form.email.data}', 'default.jpg', '{form.password.data}')")
+            return None
+        except:
+            return 'This username now exist'
 
 def insertDataToPost(form, username):
     with sqlite3.connect('entor-blog/my_blog/app/site.db') as conn:
         cusor = conn.cursor()
         userID = getNameID(username)
         cusor.execute(f'''INSERT INTO Post(title, content, userID) VALUES ("{form.title.data}", "{form.contentPost.data}", {userID})''')
+            
         
 def getNameList():
     with sqlite3.connect('entor-blog/my_blog/app/site.db') as conn:
         cusor = conn.cursor()
         cusor.execute(f"SELECT Username FROM User")
         res = cusor.fetchall()
-        return res[0]
+        return res
         
 def getNameID(username):
     with sqlite3.connect('entor-blog/my_blog/app/site.db') as conn:

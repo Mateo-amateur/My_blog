@@ -15,6 +15,11 @@
                 {{ form.password.label }} {{ form.password }}
                 {{ form.submit }}
             </form>
+            <div class="error">
+                {%if error != None%}
+                    {{error}}
+                {%endif%}
+            </div>
         </main>
     </div>
 {%endblock%}
