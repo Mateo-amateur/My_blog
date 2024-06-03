@@ -2,8 +2,6 @@
 
 body{
     font-family: 'Poppins';
-    margin: 0;
-    padding: 0;
     --main-color: #7AB2B2;
     --bg-color: #CDE8E5;
     --dark-color: #2D667C;
@@ -35,6 +33,14 @@ nav ul{
     box-shadow: 0 4px 8px #0004;
 }
 
+.list__item{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
 .list__link{
     text-decoration: none;
     color: var(--light-color);
@@ -47,4 +53,20 @@ nav ul{
 .list__link:hover{
     background-color: var(--bg-color);
     color: var(--item-navbar-color);
+}
+
+@media screen and (min-width: 1000px) {
+    .list__item .icon{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .list__item .content{
+        display: none;
+    }
+
+    .navbar__list{
+        padding: 5px;
+    }
 }

@@ -1,14 +1,14 @@
 <nav class="navbar">
     <ul class="navbar__list">
-        <li class="list__item"><a class="list__link" href="{{url_for('home')}}">Home</a></li>
-        <li class="list__item"><a class="list__link" href="{{url_for('about')}}">About</a></li>
+        <li class="list__item"><a class="list__link" href="{{url_for('home')}}"><span class="material-symbols-outlined icon">Home</span><span class="content">Home</span></a></li>
+        <li class="list__item"><a class="list__link" href="{{url_for('about')}}"><span class="material-symbols-outlined icon">Badge</span><span class="content">About</span> </a></li>
         {%if profile.isLogIn == False %}
-        <li class="list__item"><a class="list__link" href="{{url_for('login')}}">Login</a></li>
-        <li class="list__item"><a class="list__link" href="{{url_for('register')}}">Register</a></li>
+        <li class="list__item"><a class="list__link" href="{{url_for('login')}}"><span class="material-symbols-outlined icon">Login</span><span class="content">Login</span></a></li>
+        <li class="list__item"><a class="list__link" href="{{url_for('register')}}"><span class="material-symbols-outlined icon">Person_add</span><span class="content">Register</span></a></li>
         {% else %}
-        <li class="list__item"><a class="list__link" href="{{url_for('post_all')}}">Post's Menu</a></li>
-        <li class="list__item"><a class="list__link" href="{{url_for('logout')}}">Logout</a></li>
-        <li class="list__item"><a class="list__link" href="{{url_for('new_post')}}">New Post</a></li>
+        <li class="list__item"><a class="list__link" href="{{url_for('post_all')}}"><span class="material-symbols-outlined icon">format_list_bulleted</span><span class="content">Post's Menu</span></a></li>
+        <li class="list__item"><a class="list__link" href="{{url_for('logout')}}"><span class="material-symbols-outlined icon">Logout</span><span class="content">Logout</span></a></li>
+        <li class="list__item"><a class="list__link" href="{{url_for('new_post')}}"><span class="material-symbols-outlined icon">add</span><span class="content">New Post</span></a></li>
         {%endif%}
     </ul>
 </nav>

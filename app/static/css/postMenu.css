@@ -15,7 +15,7 @@ body{
     margin:  5dvh 5dvw auto 5dvw;
     border-radius: 50px;
     box-shadow: 0 4px 8px #0007;
-    max-width: 60dvw;
+    width: clamp(70dvw, 100%, 60dvw);
 }
 
 .post{
@@ -30,19 +30,22 @@ h2, .post__text, h1{
 }
 
 h2{
-    font-size: 1.7rem;
+    font-size: clamp(20px, 10dvw,  28px);
 }
 
 h1{
     letter-spacing: 2px;
     margin-bottom: 15px;
+    font-size: clamp(24px, 10dvw,  30px);
 }
 
 .post__text{
     padding: 10px;
+    font-size: clamp(14px, 10dvw,  18px);
 }
 
 .post__author{
     color: var(--dark-color);
     text-align: end;
+    
 }

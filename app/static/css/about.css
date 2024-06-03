@@ -10,7 +10,7 @@ body{
     background-color: var(--main-color);
     margin:  14dvh 5dvw 4dvh 5dvw;
     border-radius: 50px;
-    max-width: 70dvw;
+    width: clamp(90dvw, 100%, 60dvw);
     box-shadow: 0 4px 8px #0007;
 }
 
@@ -25,10 +25,11 @@ h1{
     color: var( --dark-color);
     letter-spacing: 2px;
     margin-bottom: 15px;
+    font-size: clamp(24px, 10dvw,  30px);
 }
 
 .main h2{
-    font-size: 1.7rem;
+    font-size: clamp(20px, 10dvw,  28px);
     color: var(--item-navbar-color);
     padding: 5px;
     text-align: center;
@@ -37,6 +38,7 @@ h1{
 
 .main p{
     padding: 0 20px;
+    font-size: clamp(14px, 10dvw,  18px);
 }
 
 .main span{
