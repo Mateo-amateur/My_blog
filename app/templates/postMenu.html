@@ -3,15 +3,14 @@
 {% block styles %}<link rel="stylesheet" href="{{ url_for('static', filename='css/postMenu.css') }}">{%endblock%}
 
 {% block container %}
-    <div class="header__wrapper">
-        <main>
-            {% for post in posts %}
-            <div class="post">
-                <h1> {{post[1]}} </h1>
-                <p class="textPost"> {{post[2]}} </p>
-                <p class="author"> Author: {{post[0]}} </p>
-            </div>
-            {%endfor%}
-        </main>
+<h1>Hello, here do you can to find the post that do you want</h1>
+    {% for post in posts %}
+    <div class="post__wrapper">
+        <article class="post">
+                <h2> {{post[1]}} </h2>
+                <p class="post__text"> {{post[2]}} </p>
+                <p class="post__author"> <b>Author:</b> {{post[0]}} </p>
+        </article>
     </div>
+    {%endfor%}
 {%endblock%}

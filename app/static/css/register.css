@@ -56,3 +56,7 @@ form input[type="submit"]{
     font-size: 1.2rem;
     animation: none;
 }
+
+.error{
+    color: #f33;
+}

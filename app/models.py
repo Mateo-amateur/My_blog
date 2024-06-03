@@ -9,7 +9,7 @@ def insertDataToPost(form, username):
     with sqlite3.connect('entor-blog/my_blog/app/site.db') as conn:
         cusor = conn.cursor()
         userID = getNameID(username)
-        cusor.execute(f"INSERT INTO Post(title, content, userID) VALUES ('{form.title.data}', '{form.contentPost.data}', {userID})")
+        cusor.execute(f'''INSERT INTO Post(title, content, userID) VALUES ("{form.title.data}", "{form.contentPost.data}", {userID})''')
         
 def getNameList():
     with sqlite3.connect('entor-blog/my_blog/app/site.db') as conn:
