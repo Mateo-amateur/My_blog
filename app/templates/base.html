@@ -17,5 +17,10 @@
         {% block container %}
         {% endblock%}
     </div>
+    <script>
+        fetch("{{ url_for('static', filename='txt/preferences.txt')}}")
+        .then(res=>res.json())
+        .then(res=> localStorage.setItem("theme", res.theme));
+    </script>
 </body>
 </html>

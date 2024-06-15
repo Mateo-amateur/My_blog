@@ -7,10 +7,17 @@
         <li class="list__item"><a class="list__link" href="{{url_for('register')}}"><span class="material-symbols-outlined icon">Person_add</span><span class="content">Register</span></a></li>
         {% else %}
         <li class="list__item"><a class="list__link" href="{{url_for('post_all')}}"><span class="material-symbols-outlined icon">format_list_bulleted</span><span class="content">Post's Menu</span></a></li>
-        <li class="list__item"><a class="list__link" href="{{url_for('logout')}}"><span class="material-symbols-outlined icon">Logout</span><span class="content">Logout</span></a></li>
+        <li class="list__item"><a class="list__link" id="logout" href="{{url_for('logout')}}"><span class="material-symbols-outlined icon">Logout</span><span class="content">Logout</span></a></li>
         <li class="list__item"><a class="list__link" href="{{url_for('new_post')}}"><span class="material-symbols-outlined icon">add</span><span class="content">New Post</span></a></li>
         {%endif%}
         <span class="material-symbols-outlined mode mode_ligth">Light_mode</span>
     </ul>
 </nav>
 <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<script>
+    try {
+        document.getElementById("logout").addEventListener("click", ()=> localStorage.clear());
+    } catch (error) {
+        ()=>{}
+    }
+</script>

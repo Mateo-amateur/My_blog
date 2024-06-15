@@ -1,9 +1,9 @@
 # Import modeles requireds
-from flask import render_template, url_for, flash, redirect
+from flask import render_template, url_for, flash, redirect, request
 from app import app
 from app.forms import RegisterForm, LogInForm, ValidateNameLogIn, NewPostForm
 from flask_login import login_user, current_user, logout_user, login_required
-from app.models import insertDataToForm, getNameList, getPassword, insertDataToPost, getPosts
+from app.models import insertDataToForm, getNameList, getPassword, insertDataToPost, getPosts, configPreferens, getPreferens, clearPreferent
 
 # Creating class to control if is login and keep the data of user after
 class Profile:
@@ -13,6 +13,13 @@ class Profile:
     
     def defineUsername(self, username):
         self.username = username
+
+def updateMode(req):
+    mode = req.args.get('mode')
+    if mode == None:
+        pass
+    else:
+        configPreferens(mode, profile.username)
         
 # Instantiate from Prosfile
 profile = Profile()
@@ -21,16 +28,19 @@ profile = Profile()
 @app.route("/")
 @app.route("/home")
 def home():
+    updateMode(request)
     return render_template('home.html', title = "Home", profile = profile)
 
 # Creating rout about
 @app.route("/about")
 def about():
+    updateMode(request)
     return render_template('about.html', title='About', profile = profile)
 
 # Creating rout register
 @app.route("/register", methods = ['GET', 'POST'])
 def register():
+    updateMode(request)
     # Creating Form
     form = RegisterForm()
     error = None
@@ -48,6 +58,7 @@ def register():
 # Creating rout register
 @app.route("/login", methods = ['GET', 'POST'])
 def login():
+    updateMode(request)
     # Creating Form
     form = LogInForm()
     error = None
@@ -62,6 +73,7 @@ def login():
             if  passwordUser == password:
                 profile.defineUsername(form.username.data)
                 profile.isLogIn = True
+                getPreferens(profile.username)
                 return redirect(url_for('home'))
             else:
                 error = 'The password is wrong'
@@ -75,11 +87,13 @@ def login():
 @app.route("/logout")
 def logout():
     profile.isLogIn = False
+    clearPreferent()
     return redirect(url_for('home'))
 
 # Creating rout to search posts
 @app.route("/post/all")
 def post_all():
+    updateMode(request)
     if profile.isLogIn == False:
         return redirect(url_for('home'))
     else:
@@ -89,6 +103,7 @@ def post_all():
 # Creating rout create new post
 @app.route("/post/new", methods = ['GET', 'POST'])
 def new_post():
+    updateMode(request)
     if profile.isLogIn == False:
         return redirect(url_for('home'))
     else:
